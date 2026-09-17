@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Easy website builder">
+  <title>SiteForge — Website Builder</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       APP HEADER
+  ========================== -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div>
+        <strong>SiteForge</strong>
+        <span>Website Builder</span>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <button id="undoBtn" class="icon-btn" title="Undo">↶</button>
+      <button id="redoBtn" class="icon-btn" title="Redo">↷</button>
+
+      <button id="saveBtn" class="secondary-btn">
+        💾 Save
+      </button>
+
+      <button id="previewBtn" class="secondary-btn">
+        👁 Preview
+      </button>
+
+      <button id="exportBtn" class="primary-btn">
+        📦 Export
+      </button>
+
+      <button id="publishBtn" class="publish-btn">
+        🚀 Publish
+      </button>
+    </div>
+  </header>
+
+
+  <!-- =========================
+       MAIN APPLICATION
+  ========================== -->
+  <main class="builder">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar left-sidebar">
+
+      <div class="sidebar-heading">
+        <h2>Build</h2>
+        <p>Create your website</p>
+      </div>
+
+      <button class="sidebar-item active" data-panel="pages">
+        📄
+        <span>Pages</span>
+      </button>
+
+      <button class="sidebar-item" data-panel="sections">
+        🧩
+        <span>Sections</span>
+      </button>
+
+      <button class="sidebar-item" data-panel="elements">
+        ➕
+        <span>Elements</span>
+      </button>
+
+      <button class="sidebar-item" data-panel="design">
+        🎨
+        <span>Design</span>
+      </button>
+
+      <button class="sidebar-item" data-panel="settings">
+        ⚙️
+        <span>Settings</span>
+      </button>
+
+      <div class="sidebar-divider"></div>
+
+      <button id="generateBtn" class="ai-button">
+        ✨ Generate Website
+      </button>
+
+    </aside>
+
+
+    <!-- =========================
+         TOOL PANEL
+    ========================== -->
+    <aside class="panel">
+
+      <!-- PAGES -->
+      <section id="pagesPanel" class="tool-panel active">
+
+        <div class="panel-title">
+          <div>
+            <h2>Pages</h2>
+            <p>Manage your website pages</p>
+          </div>
+
+          <button id="addPageBtn" class="small-btn">+</button>
+        </div>
+
+        <div id="pagesList" class="pages-list">
+
+          <button class="page-item active" data-page="home">
+            <span>🏠</span>
+            <span>Home</span>
+          </button>
+
+          <button class="page-item" data-page="menu">
+            <span>🍔</span>
+            <span>Menu</span>
+          </button>
+
+          <button class="page-item" data-page="about">
+            <span>ℹ️</span>
+            <span>About</span>
+          </button>
+
+          <button class="page-item" data-page="contact">
+            <span>📞</span>
+            <span>Contact</span>
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- SECTIONS -->
+      <section id="sectionsPanel" class="tool-panel">
+
+        <div class="panel-title">
+          <div>
+            <h2>Sections</h2>
+            <p>Add parts to your page</p>
+          </div>
+        </div>
+
+        <div class="section-grid">
+
+          <button class="section-card" data-section="hero">
+            <span>🖼️</span>
+            <strong>Hero</strong>
+            <small>Large introduction</small>
+          </button>
+
+          <button class="section-card" data-section="about">
+            <span>👋</span>
+            <strong>About</strong>
+            <small>Business information</small>
+          </button>
+
+          <button class="section-card" data-section="services">
+            <span>🛠️</span>
+            <strong>Services</strong>
+            <small>Show your services</small>
+          </button>
+
+          <button class="section-card" data-section="products">
+            <span>🛍️</span>
+            <strong>Products</strong>
+            <small>Product cards</small>
+          </button>
+
+          <button class="section-card" data-section="menu">
+            <span>🍔</span>
+            <strong>Food Menu</strong>
+            <small>Restaurant menu</small>
+          </button>
+
+          <button class="section-card" data-section="gallery">
+            <span>📸</span>
+            <strong>Gallery</strong>
+            <small>Image gallery</small>
+          </button>
+
+          <button class="section-card" data-section="testimonials">
+            <span>⭐</span>
+            <strong>Reviews</strong>
+            <small>Customer reviews</small>
+          </button>
+
+          <button class="section-card" data-section="contact">
+            <span>📩</span>
+            <strong>Contact</strong>
+            <small>Contact details</small>
+          </button>
+
+          <button class="section-card" data-section="footer">
+            <span>🔻</span>
+            <strong>Footer</strong>
+            <small>Website footer</small>
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ELEMENTS -->
+      <section id="elementsPanel" class="tool-panel">
+
+        <div class="panel-title">
+          <div>
+            <h2>Elements</h2>
+            <p>Add individual elements</p>
+          </div>
+        </div>
+
+        <div class="element-list">
+
+          <button class="element-btn" data-element="heading">
+            <span>H</span>
+            Heading
+          </button>
+
+          <button class="element-btn" data-element="text">
+            <span>¶</span>
+            Text
+          </button>
+
+          <button class="element-btn" data-element="button">
+            <span>▣</span>
+            Button
+          </button>
+
+          <button class="element-btn" data-element="image">
+            <span>▧</span>
+            Image
+          </button>
+
+          <button class="element-btn" data-element="video">
+            <span>▶</span>
+            Video
+          </button>
+
+          <button class="element-btn" data-element="form">
+            <span>☷</span>
+            Form
+          </button>
+
+          <button class="element-btn" data-element="map">
+            <span>📍</span>
+            Map
+          </button>
+
+          <button class="element-btn" data-element="social">
+            <span>◎</span>
+            Social Links
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- DESIGN -->
+      <section id="designPanel" class="tool-panel">
+
+        <div class="panel-title">
+          <div>
+            <h2>Design</h2>
+            <p>Customize your website</p>
+          </div>
+        </div>
+
+        <label>Primary Color</label>
+        <input
+          type="color"
+          id="primaryColor"
+          value="#ff5a36"
+        >
+
+        <label>Background</label>
+        <input
+          type="color"
+          id="backgroundColor"
+          value="#ffffff"
+        >
+
+        <label>Text Color</label>
+        <input
+          type="color"
+          id="textColor"
+          value="#111111"
+        >
+
+        <label>Font</label>
+
+        <select id="fontSelect">
+          <option value="Inter">Inter</option>
+          <option value="Arial">Arial</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Trebuchet MS">Trebuchet MS</option>
+        </select>
+
+        <label>Website Width</label>
+
+        <select id="widthSelect">
+          <option value="1200px">Wide</option>
+          <option value="1000px">Standard</option>
+          <option value="800px">Compact</option>
+        </select>
+
+      </section>
+
+
+      <!-- SETTINGS -->
+      <section id="settingsPanel" class="tool-panel">
+
+        <div class="panel-title">
+          <div>
+            <h2>Website Settings</h2>
+            <p>Business information</p>
+          </div>
+        </div>
+
+        <label>Website Name</label>
+        <input
+          id="siteName"
+          type="text"
+          value="My Business"
+          placeholder="Business name"
+        >
+
+        <label>Tagline</label>
+        <input
+          id="siteTagline"
+          type="text"
+          value="Quality you can trust"
+          placeholder="Your tagline"
+        >
+
+        <label>Phone</label>
+        <input
+          id="sitePhone"
+          type="tel"
+          placeholder="+27 00 000 0000"
+        >
+
+        <label>Email</label>
+        <input
+          id="siteEmail"
+          type="email"
+          placeholder="hello@example.com"
+        >
+
+        <label>Address</label>
+        <textarea
+          id="siteAddress"
+          placeholder="Business address"
+        ></textarea>
+
+        <label>Opening Hours</label>
+        <textarea
+          id="siteHours"
+          placeholder="Mon - Fri: 08:00 - 18:00"
+        ></textarea>
+
+      </section>
+
+    </aside>
+
+
+    <!-- =========================
+         WEBSITE CANVAS
+    ========================== -->
+    <section class="workspace">
+
+      <div class="workspace-toolbar">
+
+        <div class="breadcrumb">
+          <span id="currentPageName">Home</span>
+          <span>›</span>
+          <span>Website</span>
+        </div>
+
+        <div class="device-controls">
+
+          <button
+            class="device-btn active"
+            data-device="desktop"
+            title="Desktop"
+          >
+            🖥️
+          </button>
+
+          <button
+            class="device-btn"
+            data-device="tablet"
+            title="Tablet"
+          >
+            📱
+          </button>
+
+          <button
+            class="device-btn"
+            data-device="mobile"
+            title="Mobile"
+          >
+            📲
+          </button>
+
+        </div>
+
+        <div class="zoom-controls">
+
+          <button id="zoomOut">−</button>
+
+          <span id="zoomValue">100%</span>
+
+          <button id="zoomIn">+</button>
+
+        </div>
+
+      </div>
+
+
+      <!-- WEBSITE PREVIEW -->
+      <div class="canvas-area">
+
+        <div
+          id="websiteCanvas"
+          class="website-canvas desktop"
+        >
+
+          <!-- NAVIGATION -->
+          <nav class="site-nav">
+
+            <div class="nav-logo" id="previewSiteName">
+              My Business
+            </div>
+
+            <div class="nav-links">
+
+              <a href="#" data-nav="home">
+                Home
+              </a>
+
+              <a href="#" data-nav="menu">
+                Menu
+              </a>
+
+              <a href="#" data-nav="about">
+                About
+              </a>
+
+              <a href="#" data-nav="contact">
+                Contact
+              </a>
+
+            </div>
+
+            <button class="nav-menu-btn">
+              ☰
+            </button>
+
+          </nav>
+
+
+          <!-- HERO -->
+          <section
+            class="site-section hero-section"
+            data-section-id="hero"
+          >
+
+            <div class="hero-content">
+
+              <span class="hero-label">
+                Welcome
+              </span>
+
+              <h1
+                class="editable"
+                data-edit="heroTitle"
+              >
+                Build your dream website
+              </h1>
+
+              <p
+                class="editable"
+                data-edit="heroText"
+              >
+                Create a professional website without complicated coding.
+              </p>
+
+              <div class="hero-buttons">
+
+                <button
+                  class="primary-site-btn"
+                  id="heroActionBtn"
+                >
+                  Get Started
+                </button>
+
+                <button class="secondary-site-btn">
+                  Learn More
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- FEATURES -->
+          <section
+            class="site-section features-section"
+            data-section-id="features"
+          >
+
+            <div class="section-heading">
+
+              <span>WHY CHOOSE US</span>
+
+              <h2>
+                Everything your website needs
+              </h2>
+
+              <p>
+                Build a website that looks professional and works on every device.
+              </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+              <article class="feature-card">
+
+                <div class="feature-icon">
+                  ⚡
+                </div>
+
+                <h3>
+                  Fast
+                </h3>
+
+                <p>
+                  Your website is designed to load quickly.
+                </p>
+
+              </article>
+
+
+              <article class="feature-card">
+
+                <div class="feature-icon">
+                  📱
+                </div>
+
+                <h3>
+                  Responsive
+                </h3>
+
+                <p>
+                  Looks great on phones, tablets and computers.
+                </p>
+
+              </article>
+
+
+              <article class="feature-card">
+
+                <div class="feature-icon">
+                  🛒
+                </div>
+
+                <h3>
+                  Ready for Sales
+                </h3>
+
+                <p>
+                  Add products, prices and shopping features.
+                </p>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- PRODUCTS -->
+          <section
+            class="site-section products-section"
+            data-section-id="products"
+          >
+
+            <div class="section-heading">
+
+              <span>OUR PRODUCTS</span>
+
+              <h2>
+                Popular Products
+              </h2>
+
+            </div>
+
+
+            <div
+              id="productGrid"
+              class="product-grid"
+            >
+
+              <article
+                class="product-card"
+                data-product-id="1"
+              >
+
+                <div class="product-image">
+                  🍔
+                </div>
+
+                <div class="product-info">
+
+                  <h3>
+                    Classic Burger
+                  </h3>
+
+                  <p>
+                    Fresh burger with crispy fries.
+                  </p>
+
+                  <div class="product-bottom">
+
+                    <strong>
+                      R65
+                    </strong>
+
+                    <button
+                      class="add-cart"
+                      data-name="Classic Burger"
+                      data-price="65"
+                    >
+                      Add
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <article
+                class="product-card"
+                data-product-id="2"
+              >
+
+                <div class="product-image">
+                  🍕
+                </div>
+
+                <div class="product-info">
+
+                  <h3>
+                    Chicken Pizza
+                  </h3>
+
+                  <p>
+                    Cheesy pizza with chicken.
+                  </p>
+
+                  <div class="product-bottom">
+
+                    <strong>
+                      R95
+                    </strong>
+
+                    <button
+                      class="add-cart"
+                      data-name="Chicken Pizza"
+                      data-price="95"
+                    >
+                      Add
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <article
+                class="product-card"
+                data-product-id="3"
+              >
+
+                <div class="product-image">
+                  🍟
+                </div>
+
+                <div class="product-info">
+
+                  <h3>
+                    Loaded Fries
+                  </h3>
+
+                  <p>
+                    Crispy fries with delicious toppings.
+                  </p>
+
+                  <div class="product-bottom">
+
+                    <strong>
+                      R45
+                    </strong>
+
+                    <button
+                      class="add-cart"
+                      data-name="Loaded Fries"
+                      data-price="45"
+                    >
+                      Add
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- ABOUT -->
+          <section
+            class="site-section about-section"
+            data-section-id="about"
+          >
+
+            <div class="about-content">
+
+              <div class="about-image">
+                🏪
+              </div>
+
+              <div>
+
+                <span>
+                  ABOUT US
+                </span>
+
+                <h2>
+                  Built for your business
+                </h2>
+
+                <p>
+                  Tell your customers who you are, what you offer,
+                  and why they should choose you.
+                </p>
+
+                <button class="primary-site-btn">
+                  Learn More
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- TESTIMONIALS -->
+          <section
+            class="site-section testimonials-section"
+            data-section-id="testimonials"
+          >
+
+            <div class="section-heading">
+
+              <span>
+                CUSTOMER REVIEWS
+              </span>
+
+              <h2>
+                What customers say
+              </h2>
+
+            </div>
+
+
+            <div class="testimonial-grid">
+
+              <article class="testimonial">
+
+                <div>
+                  ⭐⭐⭐⭐⭐
+                </div>
+
+                <p>
+                  "Great service and excellent quality."
+                </p>
+
+                <strong>
+                  Customer
+                </strong>
+
+              </article>
+
+
+              <article class="testimonial">
+
+                <div>
+                  ⭐⭐⭐⭐⭐
+                </div>
+
+                <p>
+                  "I would definitely order again."
+                </p>
+
+                <strong>
+                  Customer
+                </strong>
+
+              </article>
+
+            </div>
+
+          </section>
+
+
+          <!-- CONTACT -->
+          <section
+            class="site-section contact-section"
+            data-section-id="contact"
+          >
+
+            <div class="section-heading">
+
+              <span>
+                CONTACT
+              </span>
+
+              <h2>
+                Get in touch
+              </h2>
+
+            </div>
+
+
+            <form
+              id="contactForm"
+              class="contact-form"
+            >
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+              >
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+              >
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+              >
+
+              <textarea
+                name="message"
+                placeholder="How can we help?"
+                required
+              ></textarea>
+
+              <button
+                type="submit"
+                class="primary-site-btn"
+              >
+                Send Message
+              </button>
+
+            </form>
+
+          </section>
+
+
+          <!-- FOOTER -->
+          <footer class="site-footer">
+
+            <div>
+
+              <strong id="footerSiteName">
+                My Business
+              </strong>
+
+              <p>
+                Quality you can trust.
+              </p>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Contact
+              </strong>
+
+              <p id="footerPhone">
+                Phone not set
+              </p>
+
+              <p id="footerEmail">
+                Email not set
+              </p>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Follow
+              </strong>
+
+              <p>
+                Facebook · Instagram · TikTok
+              </p>
+
+            </div>
+
+          </footer>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RIGHT PROPERTIES PANEL
+    ========================== -->
+    <aside class="properties">
+
+      <div class="properties-header">
+
+        <div>
+
+          <h2>
+            Properties
+          </h2>
+
+          <p>
+            Select an element to edit it
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="propertiesEmpty"
+        class="properties-empty"
+      >
+
+        <div>
+          🖱️
+        </div>
+
+        <h3>
+          Nothing selected
+        </h3>
+
+        <p>
+          Click an element on your website to edit it.
+        </p>
+
+      </div>
+
+
+      <div
+        id="propertiesEditor"
+        class="properties-editor hidden"
+      >
+
+        <label>
+          Text
+        </label>
+
+        <textarea
+          id="elementText"
+          rows="4"
+        ></textarea>
+
+
+        <label>
+          Font Size
+        </label>
+
+        <input
+          id="elementFontSize"
+          type="number"
+          value="16"
+        >
+
+
+        <label>
+          Text Color
+        </label>
+
+        <input
+          id="elementColor"
+          type="color"
+          value="#111111"
+        >
+
+
+        <label>
+          Background
+        </label>
+
+        <input
+          id="elementBackground"
+          type="color"
+          value="#ffffff"
+        >
+
+
+        <label>
+          Link
+        </label>
+
+        <input
+          id="elementLink"
+          type="text"
+          placeholder="https://example.com"
+        >
+
+
+        <button
+          id="applyProperties"
+          class="primary-btn full-width"
+        >
+          Apply Changes
+        </button>
+
+
+        <button
+          id="deleteElement"
+          class="danger-btn full-width"
+        >
+          🗑 Delete Element
+        </button>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+
+  <!-- =========================
+       AI GENERATOR MODAL
+  ========================== -->
+  <div
+    id="generatorModal"
+    class="modal hidden"
+  >
+
+    <div class="modal-content large-modal">
+
+      <button
+        class="modal-close"
+        id="closeGenerator"
+      >
+        ×
+      </button>
+
+      <div class="modal-icon">
+        ✨
+      </div>
+
+      <h2>
+        Generate Your Website
+      </h2>
+
+      <p>
+        Tell SiteForge what you want to build.
+      </p>
+
+
+      <textarea
+        id="generatorPrompt"
+        class="generator-input"
+        placeholder="Example: Create a modern fast-food restaurant website called Ayabonga's Kitchen. Add a burger menu, prices, online ordering, opening hours, location, WhatsApp button and customer reviews."
+      ></textarea>
+
+
+      <div class="quick-prompts">
+
+        <button data-prompt="Create a modern fast food restaurant website with burgers, pizza, fries, drinks, prices, shopping cart and contact information.">
+          🍔 Fast Food
+        </button>
+
+        <button data-prompt="Create a professional barber website with services, prices, booking form, gallery and contact details.">
+          💈 Barber
+        </button>
+
+        <button data-prompt="Create a clothing store website with products, prices, shopping cart, about section and contact page.">
+          👕 Clothing
+        </button>
+
+        <button data-prompt="Create a professional cleaning company website with services, pricing, contact form and booking button.">
+          🧹 Cleaning
+        </button>
+
+      </div>
+
+
+      <button
+        id="startGeneration"
+        class="generate-main-btn"
+      >
+        ✨ Build My Website
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       CART
+  ========================== -->
+  <div
+    id="cartDrawer"
+    class="cart-drawer"
+  >
+
+    <div class="cart-header">
+
+      <h2>
+        🛒 Your Order
+      </h2>
+
+      <button id="closeCart">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="cartItems"
+      class="cart-items"
+    >
+      <p class="empty-cart">
+        Your cart is empty.
+      </p>
+    </div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="cartTotal">
+          R0
+        </strong>
+
+      </div>
+
+      <button
+        id="checkoutBtn"
+        class="primary-site-btn full-width"
+      >
+        Checkout
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- CART FLOATING BUTTON -->
+  <button
+    id="cartButton"
+    class="cart-floating-btn"
+  >
+    🛒
+    <span id="cartCount">
+      0
+    </span>
+  </button>
+
+
+  <!-- =========================
+       CHECKOUT MODAL
+  ========================== -->
+  <div
+    id="checkoutModal"
+    class="modal hidden"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        id="closeCheckout"
+      >
+        ×
+      </button>
+
+      <h2>
+        Checkout
+      </h2>
+
+      <p>
+        Enter your details to place your order.
+      </p>
+
+
+      <form id="checkoutForm">
+
+        <input
+          type="text"
+          placeholder="Full name"
+          required
+        >
+
+        <input
+          type="tel"
+          placeholder="Phone number"
+          required
+        >
+
+        <input
+          type="text"
+          placeholder="Delivery address"
+          required
+        >
+
+        <select required>
+
+          <option value="">
+            Choose payment method
+          </option>
+
+          <option>
+            Cash on delivery
+          </option>
+
+          <option>
+            Card on delivery
+          </option>
+
+          <option>
+            EFT
+          </option>
+
+        </select>
+
+
+        <button
+          type="submit"
+          class="primary-btn full-width"
+        >
+          Place Order
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       PUBLISH MODAL
+  ========================== -->
+  <div
+    id="publishModal"
+    class="modal hidden"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        id="closePublish"
+      >
+        ×
+      </button>
+
+      <div class="modal-icon">
+        🚀
+      </div>
+
+      <h2>
+        Publish Website
+      </h2>
+
+      <p>
+        Your website is ready to publish.
+      </p>
+
+
+      <div class="publish-options">
+
+        <button
+          class="publish-option"
+          data-publish="github"
+        >
+          <strong>
+            GitHub Pages
+          </strong>
+
+          <span>
+            Publish using GitHub
+          </span>
+        </button>
+
+
+        <button
+          class="publish-option"
+          data-publish="download"
+        >
+          <strong>
+            Download Website
+          </strong>
+
+          <span>
+            Export HTML, CSS and JavaScript
+          </span>
+        </button>
+
+
+        <button
+          class="publish-option"
+          data-publish="preview"
+        >
+          <strong>
+            Open Preview
+          </strong>
+
+          <span>
+            View your finished website
+          </span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       NOTIFICATION
+  ========================== -->
+  <div
+    id="notification"
+    class="notification"
+  >
+    <span id="notificationText">
+      Saved successfully
+    </span>
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
